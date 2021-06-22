@@ -1,0 +1,15 @@
+{
+  "name": "typescript-restserver",
+  "version": "1.0.0",
+  "description": "Typescript nodejs mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesus Miranda",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^6.1.3",
+    "typescript": "^4.3.4"
+  }
+}
