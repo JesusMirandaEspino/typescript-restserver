@@ -9,7 +9,7 @@ router.get(  '/',     getUsuarios );
 router.get(  '/:id',  getUsuario );
 router.post( '/',    postUsuario );
 router.put(  '/:id',  putUsuario );
-router.put(  '/:id',  deleteUsuario );
+router.delete(  '/:id',  deleteUsuario );
 
 
 
