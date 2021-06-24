@@ -18,6 +18,7 @@ class Server {
         //Definir las rutas
         this.routes();
     }
+    //TODO Conectar base de datos
     routes() {
         this.app.use(this.apiPaths.usuarios, usuario_1.default);
     }
@@ -27,6 +28,7 @@ class Server {
         //Lectura del body
         this.app.use(express_1.default.json());
         //Carpeta publica
+        this.app.use(express_1.default.static('public'));
     }
     listen() {
         this.app.listen(this.port, () => {

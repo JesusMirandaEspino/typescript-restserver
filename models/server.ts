@@ -24,6 +24,8 @@ class Server {
         this.routes();
 
     }
+
+    //TODO Conectar base de datos
     
     routes(){
         this.app.use( this.apiPaths.usuarios, userRoutes );
@@ -39,7 +41,7 @@ class Server {
         this.app.use( express.json() );
 
         //Carpeta publica
-        
+        this.app.use( express.static( 'public' ) );
 
 
     }
