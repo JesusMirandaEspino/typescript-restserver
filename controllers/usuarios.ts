@@ -13,14 +13,22 @@ export const getUsuarios = async  ( req: Request, res: Response    ) => {
 }
 
 
-export const getUsuario = ( req: Request, res: Response    ) => {
+export const getUsuario =  async ( req: Request, res: Response    ) => {
 
     const { id  } = req.params;
+    const usuario = await Usuario.findByPk( id );
 
-    res.json( {
-        msg: 'getUsuarios',
-        id
-    } );
+    if( usuario ){
+        res.json( {
+            usuario
+        } );
+    }else{
+        res.status(404).json( { 
+            msg: `No existe el usario con el id ${ id }`
+        } );
+    }
+
+
 
 }
 
