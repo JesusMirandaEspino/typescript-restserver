@@ -36,13 +36,20 @@ const getUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.getUsuario = getUsuario;
-const postUsuario = (req, res) => {
+const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
-    res.json({
-        msg: 'postUsuario',
-        body
-    });
-};
+    try {
+        const usuario = usuario_1.default.build(body);
+        yield usuario.save();
+        res.json({ usuario });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            msg: `hable con el administrador`,
+        });
+    }
+});
 exports.postUsuario = postUsuario;
 const putUsuario = (req, res) => {
     const { id } = req.params;
