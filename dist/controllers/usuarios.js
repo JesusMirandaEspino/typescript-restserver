@@ -82,12 +82,20 @@ const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.putUsuario = putUsuario;
-const deleteUsuario = (req, res) => {
+const deleteUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
+    const usuario = yield usuario_1.default.findByPk(id);
+    if (!usuario) {
+        return res.status(404).json({
+            msg: `No existe un usuario con el id ${id}`
+        });
+    }
+    yield usuario.update({ estado: false });
+    // await usuario.destroy();
     res.json({
-        msg: 'putUsuario',
+        msg: 'El usuario ha sido dado de baja',
         id
     });
-};
+});
 exports.deleteUsuario = deleteUsuario;
 //# sourceMappingURL=usuarios.js.map
